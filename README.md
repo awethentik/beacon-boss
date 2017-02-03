@@ -24,7 +24,8 @@ $ ionic run ios
 ```
 
 ##List of plugins
-- [iBeacon Cordova Plugin](http://icons.iconarchive.com/icons/artua/mac/128/Bluetooth-icon.png) Cordova / Phonegap iBeacon plugin
+
+- [iBeacon Cordova Plugin](http://icons.iconarchive.com/icons/artua/mac/128/Bluetooth-icon.png)
 - [![npm version](https://badge.fury.io/js/cordova-plugin-app-event.svg)](http://badge.fury.io/js/cordova-plugin-app-event)
 - [![Build Status](https://travis-ci.org/apache/cordova-plugin-battery-status.svg?branch=master)](https://travis-ci.org/apache/cordova-plugin-battery-status)
 - [![Build Status](https://travis-ci.org/apache/cordova-plugin-console.svg?branch=master)](https://travis-ci.org/apache/cordova-plugin-console)
@@ -35,7 +36,7 @@ $ ionic run ios
 - [Apache Cordova WKWebView plugin](https://github.com/apache/cordova-plugin-wkwebview-engine)
 - [PhoneGap Toast plugin](http://www.x-services.nl/phonegap-toast-plugin/796)
 - [cordova.plugins.diagnostic](https://www.npmjs.com/package/cordova.plugins.diagnostic)
-- [![npm version](https://badge.fury.io/js/de.appplant.cordova.plugin.local-notification.svg)](http://badge.fury.io/js/de.appplant.cordova.plugin.local-notification)
+- [Local Notification![npm version](https://badge.fury.io/js/de.appplant.cordova.plugin.local-notification.svg)](http://badge.fury.io/js/de.appplant.cordova.plugin.local-notification)
 - [Ionic Deploy](http://docs.ionic.io/services/deploy/)
 
 More info on this can be found on the Ionic [Getting Started](http://ionicframework.com/getting-started) page and the [Ionic CLI](https://github.com/driftyco/ionic-cli) repo.
