@@ -24,7 +24,7 @@ $ ionic run ios
 ```
 
 ##List of plugins
-- ![iBeacon Cordova Plugin](http://icons.iconarchive.com/icons/artua/mac/128/Bluetooth-icon.png) Cordova / Phonegap iBeacon plugin
+- [iBeacon Cordova Plugin](http://icons.iconarchive.com/icons/artua/mac/128/Bluetooth-icon.png) Cordova / Phonegap iBeacon plugin
 - [![npm version](https://badge.fury.io/js/cordova-plugin-app-event.svg)](http://badge.fury.io/js/cordova-plugin-app-event)
 - [![Build Status](https://travis-ci.org/apache/cordova-plugin-battery-status.svg?branch=master)](https://travis-ci.org/apache/cordova-plugin-battery-status)
 - [![Build Status](https://travis-ci.org/apache/cordova-plugin-console.svg?branch=master)](https://travis-ci.org/apache/cordova-plugin-console)
