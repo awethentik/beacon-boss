@@ -1,0 +1,57 @@
+<ion-modal-view>
+    <ion-header-bar>
+        <h1 class="title">Select your location</h1>
+    </ion-header-bar>
+    <ion-header-bar class="bar bar-header bar-positive">
+        <h1 class="title">Select your location</h1>
+        <button class="button button-clear button-primary" ng-click="vm.closeModal()">Cancel</button>
+    </ion-header-bar>
+    <ion-content class="padding">
+        <h2>Punch Accepted!</h2>
+        <span>&#64; {{ vm.empSchedule[vm.today].segments[vm.currentSegment].in.timestamp }}</span>
+        <h3>Where are you working today?<h3>
+        <ion-list class="work-areas" ng-switch="ranging">
+            <div class="item item-text-wrap" ng-switch-when="off">
+                Currently Not Searching
+            </div>
+            <div ng-switch-when="on">
+                <div class="item item-text-wrap" ng-show="vm.currentRegions.beacons.length === 0 || (vm.currentRegions.beacons.length === 1 && Number(vm.currentRegions.beacons[0].minor) == vm.currentArea)">
+                    No Work Areas Detected
+                </div>
+                <button ion-item ng-hide="beacon.minor == vm.currentArea" ng-repeat="beacon in vm.currentRegions.beacons | orderBy: vm.assignProximity" class="button button-block item{{beacon.minor}}" ng-click="vm.confirmArea(beacon.minor)">
+                    <!--{{ beacon | json }}-->
+                  <span ng-if="beacon.minor == '100'">
+                      Purple Back
+                  </span>
+                  <span ng-if="beacon.minor == '90'">
+                      Blue
+                  </span>
+                  <span ng-if="beacon.minor == '80'">
+                      Purple Front
+                  </span>
+                  <span ng-if="beacon.minor == '70'">
+                      Yellow
+                  </span>
+                  <span ng-if="beacon.minor == '60'">
+                      Unknown Area
+                  </span>
+                  <span ng-if="beacon.minor == '50'">
+                      Green
+                  </span>
+                  <span ng-if="beacon.minor == '40'">
+                      Unknown Area
+                  </span>
+                  <span ng-if="beacon.minor == '30'">
+                      Unknown Area
+                  </span>
+                  <span ng-if="beacon.minor == '20' || beacon.minor == '21'">
+                      Red
+                  </span>
+                  <span ng-if="beacon.minor == '10'">
+                      Unknown Area
+                  </span>
+                </button>
+            </div>
+        </ion-list>
+    </ion-content>
+</ion-modal-view>

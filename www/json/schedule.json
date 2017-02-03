@@ -1,0 +1,30 @@
+{
+  "schedule": {
+	"shifts": [{
+		"date": "02/19/2016",
+		"shift": [{
+			"in": {
+				"time": "7:40 PM",
+				"status": "unconfirmed"
+			},
+			"out": {
+				"time": "12:00 PM",
+				"status": "unconfirmed"
+			},
+			"area": "blue",
+			"status": "unconfirmed"
+		}, {
+			"in": {
+				"time": "12:30 AM",
+				"status": "unconfirmed"
+			},
+			"out": {
+				"time": "5:30 PM",
+				"status": "unconfirmed"
+			},
+			"area": "green",
+			"status": "unconfirmed"
+		}]
+	}]
+  }
+}

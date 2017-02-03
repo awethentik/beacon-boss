@@ -1,0 +1,19 @@
+<ion-view view-title="Kronos iKonnect">
+  <ion-content>
+      <ion-list>
+          <h3 class="item item-divider">Punches</h3>
+          <ion-item ng-repeat="punch in currentEmp.punches">
+              <div class="row">
+                  <div class="col truncate">
+                      {{punch.clock}}
+                  </div>
+              </div>
+              <div class="row">
+                  <div class="col truncate">
+                      {{punch.type}} @ {{punch.timestamp}}
+                  </div>
+              </div>
+          </ion-item>
+      </ion-list>
+  </ion-content>
+</ion-view>

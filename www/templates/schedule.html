@@ -1,0 +1,32 @@
+<ion-view view-title="Kronos iKonnect">
+  <ion-content>
+      <!--<div>-->
+          <!--{{ currentEmp | json }}-->
+      <!--</div>-->
+      <ion-list>
+          <div ng-repeat="(key, value) in vm.empSchedule">
+              <h3 class="item item-divider">
+                  {{::key}}
+              </h3>
+              <ion-item>
+                  <div class="list">
+                      <!--<div class="item item-divider">-->
+                          <!--Shift Segment {{ $index }}-->
+                      <!--</div>-->
+                      <div class="item item-text-wrap">
+                          <div>In: {{ value.in.time }}</div>
+                          <div>InTouch: {{ value.in.intouch }}</div>
+                      </div>
+                      <div class="item item-text-wrap">
+                          <div>Out: {{ value.out.time }}</div>
+                          <div>InTouch: {{ value.out.intouch }}</div>
+                      </div>
+                      <div class="item item-divider item-{{value.area.neighborhood}}">
+                          {{ value.area.neighborhood }} - {{ value.area.status }}
+                      </div>
+                  </div>
+              </ion-item>
+          </div>
+      </ion-list>
+  </ion-content>
+</ion-view>

@@ -1,0 +1,93 @@
+<ion-view view-title="Kronos iKonnect" class="main-pane" cache-view="false" ng-class="vm.dayColor">
+  <ion-content>
+    <!--<button class="button button-icon ion-compose" ng-click="vm.openModal()">-->
+    <!--</button>-->
+    <!--{{ vm.empSchedule | json }}-->
+    <ion-refresher
+            pulling-text="Pull to refresh..."
+            on-refresh="vm.doRefresh()">
+    </ion-refresher>
+    <h3>
+      Good {{vm.dayColor}}, {{::vm.user.firstname}}
+      <span>Here's a look at what's happening.</span>
+    </h3>
+    <!--<span>Last Updated: {{vm.lastUpdated}}</span>-->
+    <ion-list>
+      <div class="schedule" ng-repeat="(key, value) in vm.empSchedule track by $index">
+        <ion-item class="item-stable"
+                  ng-click="vm.toggleGroup(key)"
+                  ng-class="{active: vm.groups[key]}">
+          <i class="icon" ng-class="vm.groups[key] ? 'ion-minus' : 'ion-plus'"></i>
+          &nbsp;
+          {{key | dayCompare }}
+        </ion-item>
+        <ion-item class="item-accordion" ng-show="vm.groups[key]">
+          <div class="list">
+            <div ng-repeat="segment in value.segments track by $index" class="segment">
+              <div class="item item-text-wrap item-icon-right">
+                Scheduled In: {{ segment.in.time }}
+                <i class="icon icon-balanced ion-checkmark-circled" ng-show="segment.in.timestamp"></i>
+                <span class="punch" ng-show="segment.in.timestamp && segment.in.type == 'punch'">
+                  Punched @ {{ segment.in.timestamp }}
+                </span>
+                <span class="punch" ng-show="segment.in.timestamp && segment.in.type == 'transfer'"">
+                  Transferred @ {{ segment.in.timestamp }}
+                </span>
+              </div>
+              <div class="item item-divider item-{{segment.location.label}}" ng-hide="!segment.location.label">
+                In {{ segment.location.label }}
+              </div>
+              <div class="item item-text-wrap item-icon-right">
+                Scheduled Out: {{ segment.out.time }}
+                <i class="icon icon-balanced ion-checkmark-circled" ng-show="segment.out.timestamp"></i>
+                <span class="punch" ng-show="segment.out.timestamp && segment.out.type == 'punch'">
+                  Punched @ {{ segment.out.timestamp }}
+                </span>
+                <span class="punch" ng-show="segment.out.timestamp && segment.out.type == 'transfer'">
+                  Transferred @ {{ segment.out.timestamp }}
+                </span>
+              </div>
+            </div>
+          </div>
+
+            <div ng-if="vm.dayCompare(key) == 'Today'" ng-switch="vm.availableAction">
+              <button class="button button-block button-positive" ng-click="vm.punchIn(key)" ng-switch-when="punch-in">
+                I'm ready to punch-in
+              </button>
+              <button class="button button-block button-positive" ng-click="vm.punchOut(key)" ng-switch-when="punch-out">
+                I'm ready to punch-out
+              </button>
+              <button class="button button-block button-positive" ng-click="vm.transfer('planned')" ng-switch-when="planned-transfer">
+                I'm ready to transfer
+              </button>
+              <!--<button class="button button-block button-positive" ng-click="vm.punchOutUnconfirmed(key)" ng-switch-when="punch-out-unconfirmed">-->
+                <!--Punch-out without InTouch-->
+              <!--</button>-->
+              <button class="button button-block button-positive" ng-click="vm.takeSurvey(key)" ng-switch-when="survey">
+                Take me to the survey
+              </button>
+              <button class="button button-block button-positive" ng-click="vm.transfer('new')" ng-switch-when="new-transfer">
+                Transfer to new area
+              </button>
+            </div>
+
+            <div class="item item-text-wrap item-assertive" ng-if="vm.intouchState === 'CLRegionStateOutside'">
+              Currently can't punch - searching, but no InTouch detected.
+
+              <button class="button button-block button-positive" ng-click="vm.turnOffMonitoring()">
+                Stop searching for InTouch
+              </button>
+            </div>
+
+            <div ng-if="vm.dayCompare(key) == 'Yesterday' && vm.empSchedule[key].status != 'done'">
+              <button class="button button-block button-positive" ng-click="vm.takeSurvey(key)">
+                Take me to the survey
+              </button>
+            </div>
+
+          </div>
+        </ion-item>
+      </div>
+    </ion-list>
+  </ion-content>
+</ion-view>

@@ -1,0 +1,133 @@
+<ion-view view-title="Kronos iKonnect">
+  <ion-content>
+      <!--<div>-->
+          <!--{{ didStartMonitoringForRegionLog }}-->
+      <!--</div>-->
+      <ion-list>
+          <h3>Punches</h3>
+          <ion-item ng-repeat="punch in currentEmp.punches">
+              <div class="row">
+                  <div class="col truncate">
+                      {{punch.clock}}
+                  </div>
+              </div>
+              <div class="row">
+                  <div class="col truncate">
+                      {{punch.type}} @ {{punch.timestamp}}
+                  </div>
+              </div>
+          </ion-item>
+      </ion-list>
+      <ion-list>
+        <h3>Inside Region</h3>
+        <ion-item ng-repeat="beacon in currentRegions | filter: { state: 'CLRegionStateInside' }">
+            <div class="row">
+                <div class="col truncate">
+                    {{beacon.name}}
+                </div>
+            </div>
+            <!--<div class="row">-->
+                <!--<div class="col">-->
+                    <!--major: {{beacon.region.major}}-->
+                <!--</div>-->
+                <!--<div class="col">-->
+                    <!--minor: {{beacon.region.minor}}-->
+                <!--</div>-->
+            <!--</div>-->
+            <!--<div class="row">-->
+                <!--<div class="col">-->
+                    <!--{{log.proximity}}-->
+                <!--</div>-->
+            <!--</div>-->
+        </ion-item>
+      </ion-list>
+      <ion-list>
+          <h3>Outside Region</h3>
+          <ion-item ng-repeat="beacon in currentRegions | filter: { state: 'CLRegionStateOutside' }">
+              <div class="row">
+                  <div class="col truncate">
+                      {{beacon.name}}
+                  </div>
+              </div>
+              <!--<div class="row">-->
+              <!--<div class="col">-->
+              <!--major: {{beacon.region.major}}-->
+              <!--</div>-->
+              <!--<div class="col">-->
+              <!--minor: {{beacon.region.minor}}-->
+              <!--</div>-->
+              <!--</div>-->
+              <!--<div class="row">-->
+              <!--<div class="col">-->
+              <!--{{log.proximity}}-->
+              <!--</div>-->
+              <!--</div>-->
+          </ion-item>
+      </ion-list>
+      <ion-list>
+          <h3>Unknown</h3>
+          <ion-item ng-repeat="beacon in currentRegions | filter: { state: 'unknown' }">
+              <div class="row">
+                  <div class="col truncate">
+                      {{beacon.name}}
+                  </div>
+              </div>
+              <!--<div class="row">-->
+              <!--<div class="col">-->
+              <!--major: {{beacon.region.major}}-->
+              <!--</div>-->
+              <!--<div class="col">-->
+              <!--minor: {{beacon.region.minor}}-->
+              <!--</div>-->
+              <!--</div>-->
+              <!--<div class="row">-->
+              <!--<div class="col">-->
+              <!--{{log.proximity}}-->
+              <!--</div>-->
+              <!--</div>-->
+          </ion-item>
+      </ion-list>
+      <!--<div class="row">-->
+          <!--<div class="col">-->
+              <!--{{currentRegions | json}}-->
+          <!--</div>-->
+      <!--</div>-->
+      <!--<div class="row">-->
+          <!--<div class="col">-->
+              <!--{{didDetermineStateForRegionLog | json}}-->
+          <!--</div>-->
+      <!--</div>-->
+      <!--<ion-list>-->
+      <!--<ion-item ng-repeat="(key, value) in beacons">-->
+      <!--<div class="row">-->
+      <!--<div class="col truncate">-->
+      <!--{{value.uuid}}-->
+      <!--</div>-->
+      <!--</div>-->
+      <!--<div class="row">-->
+      <!--<div class="col">-->
+      <!--major: {{value.major}}-->
+      <!--</div>-->
+      <!--<div class="col">-->
+      <!--minor: {{value.minor}}-->
+      <!--</div>-->
+      <!--</div>-->
+      <!--<div class="row">-->
+      <!--<div class="col">-->
+      <!--{{value.proximity}}-->
+      <!--</div>-->
+      <!--</div>-->
+      <!--</ion-item>-->
+      <!--</ion-list>-->
+      <!--<div>-->
+          <!--{{ didStartMonitoringForRegionLog }}-->
+          <!--pluginResult.identifier-->
+      <!--</div>-->
+      <!--<div>-->
+          <!--{{ didDetermineStateForRegionLog }}-->
+      <!--</div>-->
+      <!--<div>-->
+          <!--{{ didRangeBeaconsInRegionLog }}-->
+      <!--</div>-->
+  </ion-content>
+</ion-view>
